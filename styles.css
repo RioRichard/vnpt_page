@@ -132,13 +132,9 @@ footer {
     opacity: 1;
     visibility: visible;
     position: relative;
-    transform: translateY(100%);
     transition: transform 0.3s ease-in-out;
 }
 
-footer.visible {
-    transform: translateY(0);
-}
 
 /* Add to your existing styles.css */
 .slide {
@@ -163,4 +159,82 @@ footer.visible {
 /* Gradient overlays */
 .gradient-overlay {
     background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0));
+}
+
+/* Modal animations */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#loginModal .bg-white,
+#registerModal .bg-white {
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+/* Form focus states */
+.focus\:shadow-outline:focus {
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
+
+/* Modal backdrop */
+.bg-opacity-50 {
+    backdrop-filter: blur(4px);
+}
+
+/* Add/update these styles in your styles.css */
+#slideshow {
+    position: relative;
+    width: 100%;
+    padding-bottom: 33.33%;
+    background-color: #f1f1f1;
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Improve slide transitions */
+.slide {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    will-change: opacity;
+    /* Optimizes performance */
+}
+
+.slide:first-child {
+    opacity: 1;
+}
+
+.news-img {
+    width: 100%;
+    padding-bottom: 75%;
+}
+
+.news-item-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

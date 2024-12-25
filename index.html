@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VNPT TP. Cao Lãnh</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link href="styles.css" rel="stylesheet">
     <!-- Add Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -17,12 +16,129 @@
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center text-sm">
                 <div>
-                    <i class="fas fa-phone-alt mr-2"></i>Hotline: xxxx xxxx
+                    <i class="fas fa-phone-alt mr-2"></i>Hotline: 1800 1166
                 </div>
                 <div class="flex space-x-4">
-                    <a href="#" class="hover:text-yellow-300"><i class="fas fa-user mr-1"></i>Đăng nhập</a>
+                    <a href="#" onclick="openModal('loginModal')" class="hover:text-yellow-300">
+                        <i class="fas fa-user mr-1"></i>Đăng nhập
+                    </a>
+                    <a href="#" onclick="openModal('registerModal')" class="hover:text-yellow-300">
+                        <i class="fas fa-key mr-1"></i>Đăng ký
+                    </a>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    
+                    <!-- Login Modal -->
+                    <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
+                        <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4 relative">
+                            <button onclick="closeModal('loginModal')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-6">Đăng nhập</h2>
+                            <form id="loginForm" class="space-y-4">
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="loginEmail">
+                                        Email
+                                    </label>
+                                    <input
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        id="loginEmail" type="email" placeholder="Nhập email">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="loginPassword">
+                                        Mật khẩu
+                                    </label>
+                                    <input
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        id="loginPassword" type="password" placeholder="Nhập mật khẩu">
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="form-checkbox">
+                                        <span class="ml-2 text-sm text-gray-600">Ghi nhớ đăng nhập</span>
+                                    </label>
+                                    <a href="#" onclick="openModal('forgotPasswordModal'); closeModal('loginModal')"
+                                        class="text-sm text-blue-600 hover:text-blue-800">Quên mật khẩu?</a>
+                                </div>
+                                <button type="submit"
+                                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                    Đăng nhập
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Register Modal -->
+                    <div id="registerModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
+                        <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4 relative">
+                            <button onclick="closeModal('registerModal')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-6">Đăng ký</h2>
+                            <form id="registerForm" class="space-y-4">
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="registerEmail">
+                                        Email
+                                    </label>
+                                    <input
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        id="registerEmail" type="email" placeholder="Nhập email">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="registerPassword">
+                                        Mật khẩu
+                                    </label>
+                                    <input
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        id="registerPassword" type="password" placeholder="Nhập mật khẩu">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="confirmPassword">
+                                        Xác nhận mật khẩu
+                                    </label>
+                                    <input
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        id="confirmPassword" type="password" placeholder="Nhập lại mật khẩu">
+                                </div>
+                                <button type="submit"
+                                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                    Đăng ký
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Add Forgot Password Modal -->
+                    <div id="forgotPasswordModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
+                        <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4 relative">
+                            <button onclick="closeModal('forgotPasswordModal')"
+                                class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-6">Khôi phục mật khẩu</h2>
+                            <p class="text-gray-600 mb-6">Nhập email của bạn để nhận liên kết đặt lại mật khẩu.</p>
+                            <form id="forgotPasswordForm" class="space-y-4">
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="resetEmail">
+                                        Email
+                                    </label>
+                                    <input
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        id="resetEmail" type="email" placeholder="Nhập email">
                 </div>
-            </div>
+                <button type="submit"
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    Gửi liên kết đặt lại
+                </button>
+                <div class="text-center">
+                    <a href="#" onclick="openModal('loginModal'); closeModal('forgotPasswordModal')"
+                        class="text-sm text-blue-600 hover:text-blue-800">
+                        Quay lại đăng nhập
+                    </a>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -31,11 +147,18 @@
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center">
                 <div class="w-1/4">
-                    <img src="logo.png" alt="VNPT Logo" class="h-12">
+                    <img src="logo-vnpt.svg" alt="VNPT Logo" class="h-12">
                 </div>
-                <h1 class="text-2xl font-bold text-center flex-1">
-                    WEBSITE GIỚI THIỆU DỊCH VỤ VIỄN THÔNG VÀ CNTT TẠI VNPT TP CAO LÃNH
-                </h1>
+                <div class="flex-1">
+                
+                    <h1 class="text-xl font-bold text-center ">
+                        TẬP ĐOÀN BƯU CHÍNH VIỄN THÔNG
+                    </h1>
+                    <h1 class="text-3xl font-bold text-center">
+                        VNPT THÀNH PHỐ CAO LÃNH
+                    </h1>
+                    </div>
+
             </div>
         </div>
     </header>
@@ -78,17 +201,17 @@
                                 </a>
                                 <div
                                     class="absolute left-full top-0 bg-white shadow-lg rounded-lg py-2 w-64 hidden group-hover/sub:block ml-1">
-                                    <a href="#"
+                                    <a href="https://digishop.vnpt.vn/internet-tv"
                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">1.
                                         Các gói cước</a>
-                                    <a href="#"
+                                    <a href="https://digishop.vnpt.vn/internet-tv"
                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">2.
                                         Giá cước</a>
                                 </div>
                             </div>
 
                             <!-- MyTV -->
-                            <a href="#"
+                            <a href="https://digishop.vnpt.vn/internet-tv?tab=c336#c336"
                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
                                 Dịch vụ Truyền hình MyTV
                             </a>
@@ -111,10 +234,10 @@
                                         </a>
                                         <div
                                             class="absolute left-full top-0 bg-white shadow-lg rounded-lg py-2 w-64 hidden group-hover/sub2:block ml-1">
-                                            <a href="#"
+                                            <a href="https://digishop.vnpt.vn/di-dong?tab=c363"
                                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">1.1.
                                                 Gói cước</a>
-                                            <a href="#"
+                                            <a href="https://digishop.vnpt.vn/di-dong?tab=c363"
                                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">1.2.
                                                 Giá cước</a>
                                         </div>
@@ -128,10 +251,10 @@
                                         </a>
                                         <div
                                             class="absolute left-full top-0 bg-white shadow-lg rounded-lg py-2 w-64 hidden group-hover/sub2:block ml-1">
-                                            <a href="#"
+                                            <a href="https://digishop.vnpt.vn/di-dong?tab=c363"
                                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">1.1.
                                                 Gói cước</a>
-                                            <a href="#"
+                                            <a href="https://digishop.vnpt.vn/di-dong?tab=c363"
                                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">1.2.
                                                 Giá cước</a>
                                         </div>
@@ -140,10 +263,18 @@
                             </div>
 
                             <!-- CNTT -->
-                            <a href="#"
+                            <a href="https://vnptit.vn/"
                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
                                 Dịch vụ Công nghệ thông tin
                             </a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                                Đăng ký dịch vụ
+                            </a>
+                            
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                                Sửa chữa dịch vụ
+                            </a>
+
                         </div>
                     </div>
 
@@ -173,11 +304,9 @@
                         <div
                             class="absolute top-full left-0 bg-white shadow-lg rounded-b-lg py-2 w-64 hidden group-hover:block">
                             <a href="#"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Địa
-                                chỉ VNPT TP. Cao Lãnh</a>
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Địa chỉ liên hệ</a>
                             <a href="#"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Số
-                                điện thoại</a>
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Số điện thoại</a>
                             <a href="#"
                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Email/Facebook/Zalo</a>
                             <a href="#"
@@ -194,29 +323,35 @@
     <div class="flex-grow">
         <main class="container mx-auto px-4 py-6">
             <!-- Slideshow/Carousel Section -->
-            <div class="relative mb-8 rounded-lg overflow-hidden" id="slideshow">
+            <div class="relative mb-8" id="slideshow">
                 <!-- Slides -->
-                <div class="relative h-[400px]">
-                    <div class="slide absolute inset-0 bg-blue-600 transition-opacity duration-500"></div>
-                    <div class="slide absolute inset-0 bg-green-600 transition-opacity duration-500 opacity-0"></div>
-                    <div class="slide absolute inset-0 bg-red-600 transition-opacity duration-500 opacity-0"></div>
+                <div class="slide">
+                    <img src="banner1.jpg" alt="Banner 1" loading="lazy">
                 </div>
+                <div class="slide opacity-0">
+                    <img src="banner2.png" alt="Banner 2" loading="lazy">
+                </div>
+                <div class="slide opacity-0">
+                    <img src="banner3.jpg" alt="Banner 3" loading="lazy">
+                </div>
+
                 <!-- Navigation Arrows -->
                 <button
-                    class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 p-2 rounded-full text-white"
+                    class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 p-3 rounded-full text-white transition-all duration-300"
                     onclick="prevSlide()">
                     <i class="fas fa-chevron-left"></i>
                 </button>
                 <button
-                    class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 p-2 rounded-full text-white"
+                    class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 p-3 rounded-full text-white transition-all duration-300"
                     onclick="nextSlide()">
                     <i class="fas fa-chevron-right"></i>
                 </button>
+
                 <!-- Dots -->
                 <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
-                    <button class="w-3 h-3 rounded-full bg-white/50 dot active"></button>
-                    <button class="w-3 h-3 rounded-full bg-white/50 dot"></button>
-                    <button class="w-3 h-3 rounded-full bg-white/50 dot"></button>
+                    <button class="w-3 h-3 rounded-full bg-black/30 hover:bg-black/50 dot active transition-all duration-300"></button>
+                    <button class="w-3 h-3 rounded-full bg-black/30 hover:bg-black/50 dot transition-all duration-300"></button>
+                    <button class="w-3 h-3 rounded-full bg-black/30 hover:bg-black/50 dot transition-all duration-300"></button>
                 </div>
             </div>
 
@@ -310,30 +445,33 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <!-- News Item 1 -->
                     <div class="group">
-                        <div class="aspect-video bg-gray-100 rounded-lg mb-4 overflow-hidden">
-                            <div class="w-full h-full bg-gradient-to-r from-gray-100 to-gray-200"></div>
+                        <div class="news-img relative rounded-lg overflow-hidden mb-4">
+                            <img src="news1.jpg" alt="Chính thức cung cấp dịch vụ VinaPhone 5G" class="news-item-img absolute inset-0"
+                                loading="lazy">
                         </div>
                         <h3 class="font-semibold group-hover:text-blue-600 transition-colors">
-                            VNPT triển khai chương trình khuyến mãi tháng 3/2024
+                            Chính thức cung cấp dịch vụ VinaPhone 5G
                         </h3>
                         <p class="text-gray-500 text-sm mt-2">15/03/2024</p>
                     </div>
 
                     <!-- News Item 2 -->
                     <div class="group">
-                        <div class="aspect-video bg-gray-100 rounded-lg mb-4 overflow-hidden">
-                            <div class="w-full h-full bg-gradient-to-r from-gray-100 to-gray-200"></div>
+                        <div class="news-img relative rounded-lg overflow-hidden mb-4">
+                            <img src="news2.jpg" alt="Nâng cấp băng thông miễn phí cho khách hàng" class="news-item-img absolute inset-0"
+                                loading="lazy">
                         </div>
                         <h3 class="font-semibold group-hover:text-blue-600 transition-colors">
-                            Nâng cấp băng thông miễn phí cho khách hàng
+                            VNPT nâng tốc độ Internet hơn 3 lần – giá không đổi, thúc đẩy kiến tạo “cuộc sống số”
                         </h3>
-                        <p class="text-gray-500 text-sm mt-2">10/03/2024</p>
+                        <p class="text-gray-500 text-sm mt-2">17/12/2024</p>
                     </div>
 
                     <!-- News Item 3 -->
                     <div class="group">
-                        <div class="aspect-video bg-gray-100 rounded-lg mb-4 overflow-hidden">
-                            <div class="w-full h-full bg-gradient-to-r from-gray-100 to-gray-200"></div>
+                        <div class="news-img relative rounded-lg overflow-hidden mb-4">
+                            <img src="news3.jpg" alt="VNPT ra mắt công nghệ mới trong lĩnh vực viễn thông"
+                                class="news-item-img absolute inset-0" loading="lazy">
                         </div>
                         <h3 class="font-semibold group-hover:text-blue-600 transition-colors">
                             VNPT ra mắt công nghệ mới trong lĩnh vực viễn thông
@@ -360,9 +498,9 @@
                 <div>
                     <h3 class="font-semibold mb-4">Dịch vụ</h3>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="#" class="hover:text-yellow-300">Internet</a></li>
-                        <li><a href="#" class="hover:text-yellow-300">Truyền hình</a></li>
-                        <li><a href="#" class="hover:text-yellow-300">Di động</a></li>
+                        <li><a href="https://digishop.vnpt.vn/internet-tv" class="hover:text-yellow-300">Internet</a></li>
+                        <li><a href="https://digishop.vnpt.vn/internet-tv?tab=c336#c336" class="hover:text-yellow-300">Truyền hình</a></li>
+                        <li><a href="https://digishop.vnpt.vn/di-dong?tab=c363N" class="hover:text-yellow-300">Di động</a></li>
                     </ul>
                 </div>
                 <div>
@@ -389,7 +527,9 @@
             </div>
         </div>
     </footer>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="scripts.js"></script>
+
 </body>
 
 </html>
