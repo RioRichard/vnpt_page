@@ -1,0 +1,33 @@
+<div class="relative group">
+    <a href="#" class="flex items-center py-4 text-gray-700 hover:text-blue-600 font-medium">
+        Dịch vụ
+        <i class="fas fa-chevron-down ml-2 text-xs"></i>
+    </a>
+    <div class="absolute top-full left-0 bg-white shadow-lg rounded-b-lg py-2 w-64 hidden group-hover:block">
+        <!-- Internet -->
+        <%- include('./services/internet') %>
+
+            <!-- MyTV -->
+            <a href="https://digishop.vnpt.vn/internet-tv?tab=c336#c336"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                Dịch vụ Truyền hình MyTV
+            </a>
+
+            <!-- Mobile -->
+            <%- include('./services/mobile') %>
+
+                <!-- CNTT -->
+                <a href="https://vnptit.vn/"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                    Dịch vụ Công nghệ thông tin
+                </a>
+
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                    Đăng ký dịch vụ
+                </a>
+
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                    Sửa chữa dịch vụ
+                </a>
+    </div>
+</div>
