@@ -5,12 +5,22 @@
                 <i class="fas fa-phone-alt mr-2"></i>Hotline: 1800 1166
             </div>
             <div class="flex space-x-4">
-                <a href="#" onclick="openModal('loginModal')" class="hover:text-yellow-300">
-                    <i class="fas fa-user mr-1"></i>Đăng nhập
-                </a>
-                <a href="#" onclick="openModal('registerModal')" class="hover:text-yellow-300">
-                    <i class="fas fa-key mr-1"></i>Đăng ký
-                </a>
+                <% if (isAuthenticated) { %>
+                    <span class="hover:text-yellow-300">
+                        <i class="fas fa-user mr-1"></i>
+                        <%= user.email %>
+                    </span>
+                    <a href="#" onclick="handleLogout()" class="hover:text-yellow-300">
+                        <i class="fas fa-sign-out-alt mr-1"></i>Đăng xuất
+                    </a>
+                    <% } else { %>
+                    <a href="#" onclick="openModal('loginModal')" class="hover:text-yellow-300">
+                        <i class="fas fa-user mr-1"></i>Đăng nhập
+                    </a>
+                    <a href="#" onclick="openModal('registerModal')" class="hover:text-yellow-300">
+                        <i class="fas fa-key mr-1"></i>Đăng ký
+                    </a>
+                <% } %>
             </div>
         </div>
     </div>

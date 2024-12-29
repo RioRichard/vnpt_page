@@ -2,15 +2,23 @@
 
 ## Technology:
 
-- NodeJs 20.04 (Dự kiến)
+- NodeJs 20.18
 - MySQL (Dự kiến)
-- EJS (Dự kiến)
-- Tailwind CSS
-- Font Awesome
+- EJS
 
 ## How to use
 
-Mở trang index.html bằng trình duyệt là được.
+1. Cài đặt thư viện
+``` bash
+    npm install
+```
+2. Chạy ứng dụng
+
+``` bash
+    npm start
+```
+
+3. Vào browser với đường dẫn: http://localhost:3000
 
 ## Database design
 
@@ -25,7 +33,7 @@ Mở trang index.html bằng trình duyệt là được.
 - [x] Chỉnh sửa thêm các thông tin demo cho trang chủ.
 - [x] Thêm modal đăng nhập.
 - [x] Thêm modal đăng ký.
-- [ ] Chuyển sang SSR với ExpressJS và Engine Template (EJS)
+- [x] Chuyển sang SSR với ExpressJS và Engine Template (EJS)
 - [ ] Xây dựng Database Design cho MySQL
 - [ ] Thêm chức năng đăng ký, show thông tin user.
 - [ ] Thêm chức năng đăng nhập.
@@ -46,3 +54,8 @@ Mở trang index.html bằng trình duyệt là được.
 - Thêm modal quên mật khẩu.
 - Thêm một số thông tin cho demo cho trang chủ.
 - Thêm readme.md, bổ sung thông tin cho dự án.
+
+### 26.12.2024
+
+- Chuyển dự án sang sử dụng ExpressJS và EJS
+- Update cách sử dụng project
