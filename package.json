@@ -5,7 +5,11 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "typeorm": "typeorm-ts-node-commonjs",
+    "migration:generate": "typeorm-ts-node-commonjs migration:generate",
+    "migration:run": "typeorm-ts-node-commonjs migration:run -d config/database.js",
+    "migration:revert": "typeorm-ts-node-commonjs migration:revert -d config/database.js"
   },
   "dependencies": {
     "cookie-parser": "^1.4.7",
@@ -20,6 +24,7 @@
     "helmet": "^8.0.0",
     "mysql2": "^3.12.0",
     "reflect-metadata": "^0.2.2",
+    "ts-node": "^10.9.2",
     "typeorm": "^0.3.20"
   },
   "devDependencies": {

@@ -6,8 +6,9 @@ module.exports = new EntitySchema({
     columns: {
         id: {
             primary: true,
-            type: "int",
-            generated: true
+            type: "char",
+            length: 36,
+            generated: "uuid"
         },
         email: {
             type: "varchar",
@@ -18,16 +19,10 @@ module.exports = new EntitySchema({
             type: "varchar",
             length: 255
         },
-        createdAt: {
-            name: "created_at",
-            type: "timestamp",
-            default: () => "CURRENT_TIMESTAMP"
-        },
-        updatedAt: {
-            name: "updated_at",
-            type: "timestamp",
-            default: () => "CURRENT_TIMESTAMP",
-            onUpdate: "CURRENT_TIMESTAMP"
+        role: {
+            type: "enum",
+            enum: ["admin", "user"],
+            default: "user"
         }
     }
 });

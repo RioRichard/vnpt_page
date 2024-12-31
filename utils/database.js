@@ -1,11 +1,10 @@
-const { createConnection } = require('typeorm');
-const dbConfig = require('../config/database');
+const AppDataSource = require('../config/database');
 
 async function connectDB() {
     try {
-        const connection = await createConnection(dbConfig);
+        await AppDataSource.initialize();
         console.log('Database connected successfully');
-        return connection;
+        return AppDataSource;
     } catch (error) {
         console.error('Database connection failed:', error);
         process.exit(1);

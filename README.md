@@ -10,12 +10,12 @@
 
 1. Cài đặt thư viện
 ``` bash
-    npm install
+npm install
 ```
 2. Chạy ứng dụng
 
 ``` bash
-    npm start
+npm start
 ```
 
 3. Vào browser với đường dẫn: http://localhost:3000
