@@ -7,7 +7,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-const connectDB = require('./utils/database');
+const { connectDB } = require('./config/database');
 
 const app = express();
 

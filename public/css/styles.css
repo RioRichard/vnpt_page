@@ -238,3 +238,21 @@ footer {
     height: 100%;
     object-fit: cover;
 }
+
+/* Modal animations */
+#loginModal,
+#registerModal,
+#forgotPasswordModal {
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Use transform for modal content instead of opacity */
+.modal-content {
+    transform: translateY(0);
+    transition: transform 0.2s ease-in-out;
+}
+
+/* When modal is hidden */
+.hidden .modal-content {
+    transform: translateY(-20px);
+}

@@ -41,7 +41,6 @@ function openModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
         modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden'; // Prevent scrolling
     }
 }
 
@@ -49,17 +48,36 @@ function closeModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
         modal.classList.add('hidden');
-        document.body.style.overflow = ''; // Restore scrolling
     }
 }
 
-// Close modal when clicking outside
-document.addEventListener('click', (e) => {
-    const modals = ['loginModal', 'registerModal', 'forgotPasswordModal'];
-    modals.forEach(modalId => {
-        const modal = document.getElementById(modalId);
-        if (e.target === modal) {
-            closeModal(modalId);
+// Add event listeners when document is ready
+document.addEventListener('DOMContentLoaded', function () {
+    // Handle close button clicks
+    document.querySelectorAll('.modal-close').forEach(button => {
+        button.addEventListener('click', function () {
+            const modal = this.closest('[id$="Modal"]');
+            if (modal) {
+                modal.classList.add('hidden');
+            }
+        });
+    });
+
+    // Close modal when clicking outside
+    document.querySelectorAll('#loginModal, #registerModal, #forgotPasswordModal').forEach(modal => {
+        modal.addEventListener('click', function (e) {
+            if (e.target === this) {
+                this.classList.add('hidden');
+            }
+        });
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('#loginModal, #registerModal, #forgotPasswordModal').forEach(modal => {
+                modal.classList.add('hidden');
+            });
         }
     });
 });

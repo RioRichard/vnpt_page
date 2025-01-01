@@ -1,11 +1,11 @@
 const bcrypt = require('bcryptjs');
-const { getRepository } = require('typeorm');
+const { AppDataSource } = require('../config/database');
 const User = require('../src/entities/User');
 
 async function login(req, res) {
     try {
         const { email, password } = req.body;
-        const userRepository = getRepository(User);
+        const userRepository = AppDataSource.getRepository(User);
 
         // Find user
         const user = await userRepository.findOne({ where: { email } });
@@ -22,7 +22,8 @@ async function login(req, res) {
         // Store user info in session
         req.session.user = {
             id: user.id,
-            email: user.email
+            email: user.email,
+            role: user.role
         };
         req.session.isAuthenticated = true;
 
@@ -36,7 +37,7 @@ async function login(req, res) {
 async function register(req, res) {
     try {
         const { email, password } = req.body;
-        const userRepository = getRepository(User);
+        const userRepository = AppDataSource.getRepository(User);
 
         // Check if user exists
         const existingUser = await userRepository.findOne({ where: { email } });
@@ -54,7 +55,17 @@ async function register(req, res) {
         });
         await userRepository.save(user);
 
-        res.status(201).json({ message: 'Đăng ký thành công' });
+        // Automatically log in the user after registration
+        req.session.user = {
+            id: user.id,
+            email: user.email
+        };
+        req.session.isAuthenticated = true;
+
+        res.status(201).json({
+            message: 'Đăng ký thành công',
+            success: true
+        });
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Lỗi server' });
@@ -64,7 +75,7 @@ async function register(req, res) {
 async function forgotPassword(req, res) {
     try {
         const { email } = req.body;
-        const userRepository = getRepository(User);
+        const userRepository = AppDataSource.getRepository(User);
 
         // Check if user exists
         const user = await userRepository.findOne({ where: { email } });

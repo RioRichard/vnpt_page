@@ -1,0 +1,68 @@
+<div class="bg-white rounded-lg shadow-md p-6">
+    <h1 class="text-2xl font-bold text-gray-800 mb-6">Bảng điều khiển</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Posts Stats -->
+        <div class="bg-blue-50 rounded-lg p-6">
+            <div class="flex items-center">
+                <div class="p-3 bg-blue-500 rounded-full">
+                    <i class="fas fa-file-alt text-white text-xl"></i>
+                </div>
+                <div class="ml-4">
+                    <h2 class="text-gray-600">Tổng số bài viết</h2>
+                    <p class="text-2xl font-bold text-gray-800"><%= stats.posts || 0 %></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Users Stats -->
+        <div class="bg-green-50 rounded-lg p-6">
+            <div class="flex items-center">
+                <div class="p-3 bg-green-500 rounded-full">
+                    <i class="fas fa-users text-white text-xl"></i>
+                </div>
+                <div class="ml-4">
+                    <h2 class="text-gray-600">Người dùng</h2>
+                    <p class="text-2xl font-bold text-gray-800"><%= stats.users || 0 %></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comments Stats -->
+        <div class="bg-purple-50 rounded-lg p-6">
+            <div class="flex items-center">
+                <div class="p-3 bg-purple-500 rounded-full">
+                    <i class="fas fa-comments text-white text-xl"></i>
+                </div>
+                <div class="ml-4">
+                    <h2 class="text-gray-600">Bình luận</h2>
+                    <p class="text-2xl font-bold text-gray-800"><%= stats.comments || 0 %></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Activities -->
+    <div class="mt-8">
+        <h2 class="text-xl font-bold text-gray-800 mb-4">Hoạt động gần đây</h2>
+        <div class="bg-white rounded-lg border border-gray-200">
+            <% if (recentActivities && recentActivities.length > 0) { %>
+                <% recentActivities.forEach(activity => { %>
+                    <div class="p-4 border-b border-gray-200 last:border-b-0">
+                        <div class="flex items-center">
+                            <i class="<%= activity.icon %> text-gray-500 mr-3"></i>
+                            <div>
+                                <p class="text-gray-800"><%= activity.description %></p>
+                                <p class="text-sm text-gray-500"><%= activity.time %></p>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <div class="p-4 text-center text-gray-500">
+                    Không có hoạt động nào gần đây
+                </div>
+            <% } %>
+        </div>
+    </div>
+</div>

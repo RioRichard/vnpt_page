@@ -15,4 +15,14 @@ const AppDataSource = new DataSource({
     logging: true
 });
 
-module.exports = AppDataSource;
+const connectDB = async () => {
+    try {
+        await AppDataSource.initialize();
+        console.log('Database connected successfully');
+    } catch (error) {
+        console.error('Error connecting to database:', error);
+        process.exit(1);
+    }
+};
+
+module.exports = { AppDataSource, connectDB };
