@@ -34,9 +34,9 @@ npm start
 - [x] Thêm modal đăng nhập.
 - [x] Thêm modal đăng ký.
 - [x] Chuyển sang SSR với ExpressJS và Engine Template (EJS)
-- [ ] Xây dựng Database Design cho MySQL
-- [ ] Thêm chức năng đăng ký, show thông tin user.
-- [ ] Thêm chức năng đăng nhập.
+- [x] Xây dựng Database Design cho MySQL
+- [x] Thêm chức năng đăng ký, show thông tin user.
+- [x] Thêm chức năng đăng nhập.
 - [ ] Thêm chức năng admin đăng bài cho trang khuyến mãi.
 - [ ] Thêm chức năng admin đăng bài cho trang chủ.
 
@@ -59,3 +59,7 @@ npm start
 
 - Chuyển dự án sang sử dụng ExpressJS và EJS
 - Update cách sử dụng project
+
+### 1.1.2025
+
+- Thêm chức năng đăng nhập - đăng xuất.
